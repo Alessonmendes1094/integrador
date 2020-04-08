@@ -1,6 +1,6 @@
-  <!DOCTYPE html>
-  <html>
-  <head>
+<!DOCTYPE html>
+<html>
+<head>
     <title>@yield('titulo')</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
@@ -11,19 +11,33 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}" charset="UTF-8">
 
-  </head>
+</head>
 
-  <body>
-    <header>
-        <nav class="nav-extended">
-            <div class="nav-wrapper indigo darken-4">
-                <a href="/" class="brand-logo">Integrador Cotação -> RpInfo</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="sass.html">Sass</a></li>
-                    <li><a href="badges.html">Components</a></li>
-                    <li><a href="collapsible.html">JavaScript</a></li>
-                </ul>
-            </div>
-        </nav>
+<body>
+<header>
+    <nav class="nav-extended">
+        <div class="nav-wrapper indigo darken-4">
+            <a href="/" class="brand-logo">Integrador Cotação -> RpInfo</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li><a href="/">Inicio</a></li>
+                @if(Auth::guest())
+                @else
+                    <li>
+                        <a class="dropdown-trigger" href="#" data-target="dropdown1">
+                            <i class="material-icons left">person</i>
+                            {{Auth::user()->name}}
+                            <i class="material-icons right">arrow_drop_down</i>
+                        </a>
+                    </li>
+                @endif
+            </ul>
+        </div>
+    </nav>
+    <ul id="dropdown1-mobile" class="dropdown-content">
+        @if(Auth::guest())
+        @else
+            <li><a href="{{Auth::logout()}}">Sair</a></li>
+        @endif
+    </ul>
 </header>

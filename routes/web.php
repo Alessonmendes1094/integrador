@@ -16,5 +16,12 @@ Route::get('/', function () {
 });
 
 Route::get('/Importar_Produtos',                 ['as'=>'produtos.index',      'uses'=>'ProdutoController@index']);
-Route::post('/Importar_Produtos/salvar',         ['as'=>'produtos.salvar',     'uses'=>'ProdutoController@salvar']);
+Route::post('/Importar_Produtos/salvar',         ['as'=>'produtos.salvar',     'uses'=>'ProdutoController@salvar'])->middleware('auth');
 
+Route::get('/Exportar_Precos',                   ['as'=>'precos.index',      'uses'=>'PrecoController@index']);
+Route::post('/Exportar_Produtos/salvar',         ['as'=>'precos.salvar',     'uses'=>'PrecoController@salvar'])->middleware('auth');
+
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

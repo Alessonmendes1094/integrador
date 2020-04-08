@@ -38,7 +38,7 @@
                         <p>Obs.: Após importação, nao poderá mais ser informado nenhum preço na Cotação</p>
                     </div>
                     <div class="card-action center-align">
-                        <a class="btn" href="{{route('produtos.index')}}">Clique aqui para importar</a>
+                        <a class="btn" href="{{route('precos.index')}}">Clique aqui para importar</a>
                     </div>
             </div>
         </div>

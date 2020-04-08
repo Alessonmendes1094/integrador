@@ -9,16 +9,20 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Database\Eloquent\Model;
+use PhpParser\Node\Stmt\Foreach_;
 
 class ProdutoController extends Controller
 {
     public function index()
     {
+
         $cotacoes = DB::connection('mysql')->select("select id , titulo from cotacoes where cotacoes.id not in (
-                        SELECT cotacoes.id FROM cotacao.cotacoes
+                        SELECT cotacoes.id FROM cotacoes
                         inner join  prod_cotacao on prod_cotacao_id = cotacoes.id
                         inner join prod_precos on prodpr_produto_id = prod_cotacao.id
                         where status = 'Aberta' group by cotacoes.id) and status = 'Aberta'");
+
+
         $produtos = DB::connection('pgsql')->select('select * from prodcotacao');
 
         return view('ImportarProdutos.index', compact('produtos', 'cotacoes'));
@@ -47,7 +51,8 @@ class ProdutoController extends Controller
             $prodweb->prod_cotacao_id = $req->cotacao;
             $prodweb->save();
         }
-        Session::flash('success', $qtd.' produtos Importados com sucesso');
+
+        Session::flash('success', $qtd . ' produtos Importados com sucesso');
         return view('welcome');
     }
 
