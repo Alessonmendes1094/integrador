@@ -21,23 +21,7 @@
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a href="/">Inicio</a></li>
-                @if(Auth::guest())
-                @else
-                    <li>
-                        <a class="dropdown-trigger" href="#" data-target="dropdown1">
-                            <i class="material-icons left">person</i>
-                            {{Auth::user()->name}}
-                            <i class="material-icons right">arrow_drop_down</i>
-                        </a>
-                    </li>
-                @endif
             </ul>
         </div>
     </nav>
-    <ul id="dropdown1-mobile" class="dropdown-content">
-        @if(Auth::guest())
-        @else
-            <li><a href="{{Auth::logout()}}">Sair</a></li>
-        @endif
-    </ul>
 </header>
