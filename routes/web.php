@@ -26,5 +26,6 @@ Route::post('/Exportar_Produtos/salvar',         ['as'=>'precos.salvar',     'us
 
 Auth::routes();
 
-Route::get('/home',  function () {
-    return view('welcome')})->name('home');
+Route::get('/home', function () {
+    return view('welcome');
+})->name('home');
