@@ -10,7 +10,11 @@ class MovCotacao extends Model
 
     protected $table = 'movcotacao';
 
-    protected $guarded = [];
+    protected $guarded    = [];
+    
+    protected $primaryKey = null;
+
+    public $incrementing = false;
 
     public $timestamps = false;
 }

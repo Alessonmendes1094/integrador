@@ -56,7 +56,7 @@ class PrecoController extends Controller
             $precoprod->mcot_preco = $preco->prodpr_valor;
             $precoprod->mcot_data = "'". $req->data."'";
             $precoprod->mcot_unid_codigo = '001';
-            $precoprod->mcot_obs = "'(WEB) '".$preco->observacao;
+            $precoprod->mcot_obs = '(WEB) '.$preco->observacao;
             $precoprod->mcot_icms = 0.000;
             $precoprod->mcot_subtrib = 0.000;
             $precoprod->mcot_perc = 0.000;
